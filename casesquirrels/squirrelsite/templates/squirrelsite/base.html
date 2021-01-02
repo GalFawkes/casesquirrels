@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}Just a Normal eCommerce Site{% endblock %}</title>
+  <link href="{% static 'squirrelsite/media/favicon_io/favicon.ico' %}" rel="icon" type="image/x-icon" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap -->
+  <link href="{% static 'squirrelsite/css/bootstrap-4.4.1.css' %}" rel="stylesheet">
+<!-- Add Stylesheet Links Here -->
+    {% block additional_head_content %}
+    {% endblock %}
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              </li> 
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">Action</a>
+  <!--				  Need to make sure that homo sapiens cannot see the actions below this list, maybe login-gated?-->
+  <!--				  THIS CAN BE EDITED LATER FOR MORE PUZZLES - Z -->
+                  <div class="dropdown-divider"></div>
+                </div>
+              </li>
+              <li class="nav-item">
+  <!--				  Make sure that homo sapiens cannot access the site behind the secret button here, maybe login-gated?-->
+                <a class="nav-link" href="{% url 'squirrels:secret' %}" style="opacity: 25%">Disabled</a>
+              </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <ul class="navbar-nav mr-auto">
+                {% if user.is_authenticated %}
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                    {% if user.is_superuser %}
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
+                    </li>
+                    {% endif %}
+                {% else %}
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    </li>
+                {% endif %}
+            </ul>
+          </div>
+        </div>
+      </nav>  
+
+        {% block content %}
+        <p>Content Goes Here.</p>
+        {% endblock %}
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{% static 'squirrelsite/js/jquery-3.4.1.min.js' %}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'squirrelsite/js/popper.min.js' %}"></script>
+    <script src="{% static 'squirrelsite/js/bootstrap-4.4.1.js' %}"></script>
+</body>
+</html>
