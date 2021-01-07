@@ -23,7 +23,7 @@ class Puzzle(models.Model):
     difficulty = models.IntegerField(choices=puzzle_difficulty)
     # Methods
     def __str__(self) -> str:
-        return f'{self.solution}: {self.phase} {self.difficulty} Puzzle'  # e.g. SPITBALL: Day 1 Moderate Puzzle
+        return f'Code {self.solution}: Day {self.phase}, {self.puzzle_difficulty[self.difficulty][1]} difficulty'  # e.g. SPITBALL: Day 1 Moderate Puzzle
 
     def getCurrentPoints(self) -> int:
         now = datetime.now()
@@ -57,3 +57,7 @@ class Merch(models.Model):
     image = models.ImageField(upload_to='inventory')
     def __str__(self) -> str:
         return f'{self.name}, inventory no: {self.pk}'
+
+class Redeemed(models.Model):
+    user = models.ForeignKey(User, db_index=True, on_delete=models.CASCADE)
+    puzle = models.ForeignKey(Puzzle, db_index=True, on_delete=models.CASCADE)
