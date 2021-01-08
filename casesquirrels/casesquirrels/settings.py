@@ -27,7 +27,7 @@ SECRET_KEY = 'e$(02wyl3a6g$c=9=zn6$c0b^t=o_8hq(ljv!#a4*z#kso_3ok'
 DEBUG = False
 
 # Change this later, it's not secure
-ALLOWED_HOSTS = ['3.20.75.31']
+ALLOWED_HOSTS = ['www.casesquirrels.space', 'casesquirrels.space']
 
 
 # Application definition
