@@ -24,10 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'e$(02wyl3a6g$c=9=zn6$c0b^t=o_8hq(ljv!#a4*z#kso_3ok'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # Change this later, it's not secure
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['3.20.75.31']
 
 
 # Application definition
@@ -129,3 +129,12 @@ LOGIN_URL = 'login'
 LOGOUT_REDIRECT_URL = '/'
 
 STATIC_ROOT= os.path.join(BASE_DIR, "static")
+
+
+# System hardening measures
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = True
+SECURE_HSTS_SECONDS = 3600
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
