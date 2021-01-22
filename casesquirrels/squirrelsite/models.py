@@ -1,8 +1,10 @@
 from datetime import datetime, timedelta
+from typing import Tuple
 
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.fields.related import ForeignKey
+from django.utils import timezone
 # Create your models here.
 
 class Puzzle(models.Model):
@@ -25,13 +27,13 @@ class Puzzle(models.Model):
     def __str__(self) -> str:
         return f'Code {self.solution}: Day {self.phase}, {self.puzzle_difficulty[self.difficulty][1]} difficulty'  # e.g. SPITBALL: Day 1 Moderate Puzzle
 
-    def getCurrentPoints(self) -> int:
-        now = datetime.now()
+    def getCurrentPoints(self) -> Tuple[int, bool]:
+        now = timezone.now()
         expiry = self.live_date + timedelta(days=2) # Assume puzzle expires in 2 days (at start of next phase)
         if self.live_date > now:  # If the puzzle is not active, return 0 points and DO NOT INCREMENT SOLVED
-            return 0
+            return (0, False)
         elif now > expiry: # Time has elapsed on the puzzle.
-            return 0
+            return (0, False)
         else:
             points = 0  # If it clears the if statement, the puzzle is LIVE!
             if (self.times_solved < 7):  # Calculate bonuses
@@ -43,12 +45,15 @@ class Puzzle(models.Model):
             multiplier /= 47 # divide by 47 hours (can just divide by 47 to handle rounding, I think)
             points += self.initial_points * multiplier
             super().save()  # Save changes to model
-            return points
+            return (points, True)
 
 
 class Score(models.Model):
     user = models.ForeignKey(User, db_index=True, on_delete=models.CASCADE)
-    points = models.IntegerField()
+    points = models.IntegerField(default=0)
+
+    def __str__(self) -> str:
+        return f'{self.user.first_name} {self.user.last_name}\'s score: {self.points}'
 
 class Merch(models.Model):
     name = models.CharField(max_length=100)
@@ -61,3 +66,6 @@ class Merch(models.Model):
 class Redeemed(models.Model):
     user = models.ForeignKey(User, db_index=True, on_delete=models.CASCADE)
     puzzle = models.ForeignKey(Puzzle, db_index=True, on_delete=models.CASCADE)
+
+    def __str__(self) -> str:
+        return f'User: {self.user}, Puzzle: {self.puzzle.solution}'

@@ -17,7 +17,7 @@ class SecretView(LoginRequiredMixin, generic.TemplateView):
 class RedeemView(LoginRequiredMixin, generic.edit.FormView):
     template_name='squirrelsite/redeem.html'
     form_class = SolutionForm
-    success_url = 'squirrels:index'
+    success_url = '/site'
 
     def form_valid(self, form):
         form.validate(self.request.user)
