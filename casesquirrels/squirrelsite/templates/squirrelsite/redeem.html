@@ -1,0 +1,11 @@
+{% extends 'squirrelsite/base.html' %}
+{% block title %}Redeem a Puzzle Code{% endblock %}
+
+{% block content %}
+  <h2>Puzzle Code</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Sign Up</button>
+  </form>
+{% endblock %}
