@@ -4,11 +4,11 @@ from django.shortcuts import get_object_or_404, render, redirect
 from django.views import generic
 from django.contrib.auth import authenticate, login
 
-from .models import Merch, Puzzle
+from .models import Merch
 from .forms import NewUserForm, SolutionForm
 
 
-class IndexView(generic.TemplateView):
+class IndexView(generic.TemplateView):  # Need to implement each item of merchandise being displayed
     template_name = 'squirrelsite/index.html'
 
 class SecretView(LoginRequiredMixin, generic.TemplateView):
@@ -22,16 +22,6 @@ class RedeemView(LoginRequiredMixin, generic.edit.FormView):
     def form_valid(self, form):
         form.validate(self.request.user)
         return super().form_valid(form)
-        
-
-# def puzzle_code(request):
-#     if request.method == 'POST':
-#         if request.user.is_authenticated:
-#             form = SolutionForm(request.POST)
-#             if form.is_valid():
-#                 for p in Puzzle.objects.all():
-#                     if form.cleaned_data.get('reveal_code')
-#     return redirect('squirrels:index')
 
 def signup(request):
     if request.method == 'POST':
