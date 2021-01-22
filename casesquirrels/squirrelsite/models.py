@@ -60,4 +60,4 @@ class Merch(models.Model):
 
 class Redeemed(models.Model):
     user = models.ForeignKey(User, db_index=True, on_delete=models.CASCADE)
-    puzle = models.ForeignKey(Puzzle, db_index=True, on_delete=models.CASCADE)
+    puzzle = models.ForeignKey(Puzzle, db_index=True, on_delete=models.CASCADE)
