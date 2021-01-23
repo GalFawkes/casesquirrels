@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404, render, redirect
 from django.views import generic
 from django.contrib.auth import authenticate, login
 
+
 from .models import Merch, Score
 from .forms import NewUserForm, SolutionForm
 
@@ -17,7 +18,7 @@ class SecretView(LoginRequiredMixin, generic.TemplateView):
 class RedeemView(LoginRequiredMixin, generic.edit.FormView):
     template_name='squirrelsite/redeem.html'
     form_class = SolutionForm
-    success_url = '/site'
+    success_url = '/site/leaderboard'
 
     def form_valid(self, form):
         form.validate(self.request.user)
@@ -25,7 +26,10 @@ class RedeemView(LoginRequiredMixin, generic.edit.FormView):
 
 class LeaderboardView(LoginRequiredMixin, generic.list.ListView):
     template_name='squirrelsite/leaderboard.html'
-    model = Score
+    
+    def get_queryset(self):
+        results = Score.objects.order_by('-points')
+        return results
 
 
 def signup(request):

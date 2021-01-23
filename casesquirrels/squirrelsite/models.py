@@ -5,6 +5,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.fields.related import ForeignKey
 from django.utils import timezone
+from django.contrib import messages
 # Create your models here.
 
 class Puzzle(models.Model):

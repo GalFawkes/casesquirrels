@@ -5,6 +5,16 @@ Leaderboard
 {% endblock %}
 
 {% block content %}
-{% for score in object_list %}
-<li>{{score.User}}</li>
+<table style="width:100%">
+	<tr>
+		<th>Username</th>
+		<th>Score</th>
+	</tr>
+	{% for score in score_list %}
+	<tr>
+		<td>{{score.user.username}}</td>
+		<td>{{score.points}}</td>
+	</tr>
+	{% endfor %}
+</table>
 {% endblock %}
