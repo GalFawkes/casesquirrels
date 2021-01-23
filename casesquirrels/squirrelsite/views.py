@@ -24,6 +24,7 @@ class RedeemView(LoginRequiredMixin, generic.edit.FormView):
         return super().form_valid(form)
 
 class LeaderboardView(LoginRequiredMixin, generic.list.ListView):
+    template_name='squirrelsite/leaderboard.html'
     model = Score
 
 

@@ -1,0 +1,10 @@
+{% extends 'squirrelsite/base.html' %}
+
+{% block title %}
+Leaderboard
+{% endblock %}
+
+{% block content %}
+{% for score in object_list %}
+<li>{{score.User}}</li>
+{% endblock %}
