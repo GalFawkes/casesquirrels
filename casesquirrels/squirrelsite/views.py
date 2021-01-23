@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404, render, redirect
 from django.views import generic
 from django.contrib.auth import authenticate, login
 
-from .models import Merch
+from .models import Merch, Score
 from .forms import NewUserForm, SolutionForm
 
 
@@ -22,6 +22,10 @@ class RedeemView(LoginRequiredMixin, generic.edit.FormView):
     def form_valid(self, form):
         form.validate(self.request.user)
         return super().form_valid(form)
+
+class LeaderboardView(LoginRequiredMixin, generic.list.ListView):
+    model = Score
+
 
 def signup(request):
     if request.method == 'POST':
