@@ -21,8 +21,12 @@ class RedeemView(LoginRequiredMixin, generic.edit.FormView):
     success_url = '/site/leaderboard'
 
     def form_valid(self, form):
-        form.validate(self.request.user)
-        return super().form_valid(form)
+        # THIS IS SHITTY DESIGN AND SHOULD BE BURNED
+        result = form.validate(self.request.user)
+        if result:
+            return super().form_valid(form)
+        else:
+            return super().form_invalid(form)
 
 class LeaderboardView(LoginRequiredMixin, generic.list.ListView):
     template_name='squirrelsite/leaderboard.html'

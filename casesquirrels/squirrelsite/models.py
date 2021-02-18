@@ -8,6 +8,7 @@ from django.utils import timezone
 from django.contrib import messages
 # Create your models here.
 
+
 class Puzzle(models.Model):
     # Internal Definitions
     puzzle_classes = [('WB', 'Web-Based'),('IB', 'Image-Based'), ('SM', 'Secret Message'),]
@@ -70,3 +71,22 @@ class Redeemed(models.Model):
 
     def __str__(self) -> str:
         return f'User: {self.user}, Puzzle: {self.puzzle.solution}'
+
+class Squad(models.Model):
+    name = models.CharField(max_length=100)
+
+    def get_score(self):
+        score = 0
+        for member in SquadMember.objects.filter(squad=self):
+            score += Score.objects.get(user=member.player).points
+        return score
+
+    def __str__(self) -> str:
+        return f'{self.name}'
+
+class SquadMember(models.Model):
+    player = models.ForeignKey(User, db_index=True, on_delete=models.CASCADE)
+    squad = models.ForeignKey(Squad, db_index=True, on_delete=models.SET_NULL, null=True)
+
+    def __str__(self) -> str:
+        return f'{self.player}: {self.squad}'

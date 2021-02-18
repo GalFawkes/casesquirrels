@@ -27,7 +27,7 @@ SECRET_KEY = 'e$(02wyl3a6g$c=9=zn6$c0b^t=o_8hq(ljv!#a4*z#kso_3ok'
 DEBUG = False
 
 # Change this later, it's not secure
-ALLOWED_HOSTS = ['www.casesquirrels.space', 'casesquirrels.space']
+ALLOWED_HOSTS = ['www.casesquirrels.space', 'casesquirrels.space', 'localhost']
 
 
 # Application definition
@@ -135,6 +135,6 @@ STATIC_ROOT= os.path.join(BASE_DIR, "static")
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 SECURE_SSL_REDIRECT = True
-SECURE_HSTS_SECONDS = 3600
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_HSTS_PRELOAD = True
+# SECURE_HSTS_SECONDS = 3600
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+# SECURE_HSTS_PRELOAD = True

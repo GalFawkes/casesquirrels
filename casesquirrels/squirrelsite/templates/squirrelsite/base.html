@@ -27,17 +27,17 @@
                 <a class="nav-link" href="{% url 'squirrels:index' %}">Home <span class="sr-only">(current)</span></a>
               </li> 
               <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="{% url 'squirrels:leaderboard' %}">Leaderboard</a>
               </li>
-              <li class="nav-item dropdown">
+              <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Action</a> -->
   <!--				  Need to make sure that homo sapiens cannot see the actions below this list, maybe login-gated?-->
   <!--				  THIS CAN BE EDITED LATER FOR MORE PUZZLES - Z -->
-                  <div class="dropdown-divider"></div>
+                  <!-- <div class="dropdown-divider"></div>
                 </div>
-              </li>
+              </li> -->
               <li class="nav-item">
                 {% if user.is_authenticated %}
   <!--				  Make sure that homo sapiens cannot access the site behind the secret button here, maybe login-gated?-->

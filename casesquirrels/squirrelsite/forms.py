@@ -41,4 +41,4 @@ class SolutionForm(forms.Form):
         target_score = Score.objects.get_or_create(user=user)[0]
         target_score.points  += user_points
         target_score.save()
-        pass
+        return is_valid
