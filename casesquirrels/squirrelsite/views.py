@@ -9,8 +9,12 @@ from .models import Merch, Score
 from .forms import NewUserForm, SolutionForm
 
 
-class IndexView(generic.TemplateView):  # Need to implement each item of merchandise being displayed
+class IndexView(generic.ListView):  # Need to implement each item of merchandise being displayed
     template_name = 'squirrelsite/index.html'
+
+    def get_queryset(self):
+        results = Merch.objects.all()
+        return results
 
 class SecretView(LoginRequiredMixin, generic.TemplateView):
     template_name = 'squirrelsite/secret.html'

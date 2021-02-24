@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'e$(02wyl3a6g$c=9=zn6$c0b^t=o_8hq(ljv!#a4*z#kso_3ok'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # Change this later, it's not secure
 ALLOWED_HOSTS = ['www.casesquirrels.space', 'casesquirrels.space', 'localhost']
@@ -66,6 +66,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -129,7 +130,8 @@ LOGIN_URL = 'login'
 LOGOUT_REDIRECT_URL = '/'
 
 STATIC_ROOT= os.path.join(BASE_DIR, "static")
-
+# MEDIA_ROOT=os.path.join(BASE_DIR, "inventory")
+MEDIA_URL='https://www.casesquirrels.space/'
 
 # System hardening measures
 CSRF_COOKIE_SECURE = True
