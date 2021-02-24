@@ -17,6 +17,9 @@ from django.contrib import admin
 from django.urls import include, path
 from django.contrib.auth import views as auth_views
 from django.views.generic.base import RedirectView
+from django.contrib.staticfiles.urls import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from . import settings
 
 urlpatterns = [
     path('site/', include('squirrelsite.urls'), name='squirrels'),
@@ -25,5 +28,4 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='squirrelsite/logout.html'), name='logout'),
     path('ff/', include('fastforward.urls')),
     path('', RedirectView.as_view(pattern_name='squirrels:index'), name='root'),
-
 ]
