@@ -4847,6 +4847,13 @@ input[type="button"].btn-block {
   border-bottom-left-radius: calc(0.25rem - 1px);
 }
 
+.card-img-top{
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+}
+
+
 .card-deck .card {
   margin-bottom: 15px;
 }
