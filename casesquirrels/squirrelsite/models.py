@@ -68,6 +68,7 @@ class Merch(models.Model):
 class Redeemed(models.Model):
     user = models.ForeignKey(User, db_index=True, on_delete=models.CASCADE)
     puzzle = models.ForeignKey(Puzzle, db_index=True, on_delete=models.CASCADE)
+    timestamp = models.DateTimeField(default=timezone.now)
 
     def __str__(self) -> str:
         return f'User: {self.user}, Puzzle: {self.puzzle.solution}'

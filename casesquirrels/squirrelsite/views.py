@@ -48,6 +48,8 @@ def signup(request):
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
+            new_score = Score(user=user)
+            new_score.save()
             login(request, user)
             return redirect('squirrels:index')
     else:
