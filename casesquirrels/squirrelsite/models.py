@@ -78,9 +78,18 @@ class Squad(models.Model):
 
     def get_score(self):
         score = 0
+        member_count = 0
         for member in SquadMember.objects.filter(squad=self):
+            member_count += 1
             score += Score.objects.get(user=member.player).points
+        score /= member_count
         return score
+    
+    def make_user(self):
+        squad_user = User.objects.get_or_create(username=self.name, first_name="Squad", last_name=self.name)[0]
+        squad_score = Score.objects.get_or_create(user=squad_user)[0]
+        squad_score.points = self.get_score()
+        squad_score.save()
 
     def __str__(self) -> str:
         return f'{self.name}'

@@ -5,7 +5,7 @@ from django.views import generic
 from django.contrib.auth import authenticate, login
 
 
-from .models import Merch, Score
+from .models import Merch, Score, Squad, SquadMember
 from .forms import NewUserForm, SolutionForm
 
 
@@ -36,7 +36,18 @@ class LeaderboardView(LoginRequiredMixin, generic.list.ListView):
     template_name='squirrelsite/leaderboard.html'
     
     def get_queryset(self):
+        # Get all squads updated (gives scores)
+        # Filter all users in squads out
+        # ???
+        # profit
+        for squad in Squad.objects.all():
+            squad.make_user()  # I hate my life right now
         results = Score.objects.order_by('-points')
+        squad_members = SquadMember.objects.all()
+        member_list = []
+        for member in squad_members:
+            member_list.append(member.player)
+        results = results.exclude(user__in=member_list)
         return results
 
 

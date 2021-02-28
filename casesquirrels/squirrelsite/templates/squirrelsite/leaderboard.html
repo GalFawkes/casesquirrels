@@ -7,12 +7,19 @@ Leaderboard
 {% block content %}
 <table style="width:100%">
 	<tr>
+		<h4>All Squads are in Bold, squads replace individual scores for their members</h4>
+	</tr>
+	<tr>
 		<th>Username</th>
 		<th>Score</th>
 	</tr>
 	{% for score in score_list %}
 	<tr>
+		{% if score.user.first_name == "Squad" %}
+		<td><strong>{{score.user.username}}</strong></td>
+		{% else %}
 		<td>{{score.user.username}}</td>
+		{% endif %}
 		<td>{{score.points}}</td>
 	</tr>
 	{% endfor %}
