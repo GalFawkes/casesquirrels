@@ -98,7 +98,7 @@ class Squad(models.Model):
 
 class SquadMember(models.Model):
     player = models.ForeignKey(User, db_index=True, on_delete=models.CASCADE)
-    squad = models.ForeignKey(Squad, db_index=True, on_delete=models.SET_NULL, null=True)
+    squad = models.ForeignKey(Squad, db_index=True, on_delete=models.CASCADE, null=True)
 
     def __str__(self) -> str:
         return f'{self.player}: {self.squad}'
