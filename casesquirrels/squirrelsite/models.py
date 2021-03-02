@@ -79,10 +79,12 @@ class Squad(models.Model):
     def get_score(self):
         score = 0
         member_count = 0
-        for member in SquadMember.objects.filter(squad=self):
-            member_count += 1
-            score += Score.objects.get(user=member.player).points
-        score /= member_count
+        member_set = SquadMember.objects.filter(squad=self)
+        if len(member_set)  > 0:
+            for member in member_set:
+                member_count += 1
+                score += Score.objects.get(user=member.player).points
+            score /= member_count
         return score
     
     def make_user(self):
