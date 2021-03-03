@@ -66,3 +66,6 @@ def signup(request):
     else:
         form = NewUserForm()
     return render(request, 'squirrelsite/newuser.html', {'form':form})
+
+def cyoa(request):
+    return redirect('https://www.casesquirrels.space/static/squirrelsite/media/CYOA.html')

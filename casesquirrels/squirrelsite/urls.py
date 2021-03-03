@@ -10,4 +10,5 @@ urlpatterns = [
     path('newuser', views.signup, name='newuser'),
     path('redeem', views.RedeemView.as_view(), name='redeem'),
     path('leaderboard', views.LeaderboardView.as_view(), name='leaderboard'),
+    path('cyoa', views.cyoa, name='cyoa'),
 ]
