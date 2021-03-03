@@ -26,6 +26,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', auth_views.LoginView.as_view(template_name='squirrelsite/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='squirrelsite/logout.html'), name='logout'),
-    path('ff/', include('fastforward.urls')),
+    # path('ff/', include('fastforward.urls')),
     path('', RedirectView.as_view(pattern_name='squirrels:index'), name='root'),
 ]

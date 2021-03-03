@@ -34,7 +34,7 @@ ALLOWED_HOSTS = ['www.casesquirrels.space', 'casesquirrels.space', 'localhost']
 
 INSTALLED_APPS = [
     'squirrelsite.apps.SquirrelsiteConfig',
-    'fastforward.apps.FastforwardConfig',
+    # 'fastforward.apps.FastforwardConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
