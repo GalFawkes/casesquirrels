@@ -42,6 +42,7 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="{% url 'squirrels:sqrl' %}">New Courses!</a>
                 </div>
+                <div class="dropdown-divider"></div>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="{% url 'squirrels:cyoa' %}">The Mysterious Button</a>
                 </div>
@@ -50,12 +51,12 @@
                   <div class="dropdown-divider"></div>
                 </div>-->
               </li>
+              {% if user.is_authenticated %}
               <li class="nav-item">
-                {% if user.is_authenticated %}
   <!--				  Make sure that homo sapiens cannot access the site behind the secret button here, maybe login-gated?-->
                 <a class="nav-link" href="{% url 'squirrels:secret' %}" style="opacity: 25%">Disabled</a>
-                {% endif %}
               </li>
+              {% endif %}
             </ul>
             <ul class="navbar-nav mr-auto">
               <li class="nav-item">
