@@ -25,20 +25,31 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="{% url 'squirrels:index' %}">Home <span class="sr-only">(current)</span></a>
-              </li> 
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'squirrels:leaderboard' %}">Leaderboard</a>
               </li>
-              <!-- <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Useful Links!</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Action</a> -->
-  <!--				  Need to make sure that homo sapiens cannot see the actions below this list, maybe login-gated?-->
-                  <!-- <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="{% url 'squirrels:tree' %}">Mysterious Acorn Piles?</a>
                 </div>
-              </li> -->
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{% url 'squirrels:tail' %}">An Exclusive Interview</a>
+                </div>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{% url 'squirrels:nuts' %}">A Letter from Squirrels</a>
+                </div>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{% url 'squirrels:sqrl' %}">New Courses!</a>
+                </div>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{% url 'squirrels:cyoa' %}">The Mysterious Button</a>
+                </div>
+  <!--				  Need to make sure that homo sapiens cannot see the actions below this list, maybe login-gated?-->
+  <!--          <div>
+                  <div class="dropdown-divider"></div>
+                </div>-->
+              </li>
               <li class="nav-item">
                 {% if user.is_authenticated %}
   <!--				  Make sure that homo sapiens cannot access the site behind the secret button here, maybe login-gated?-->

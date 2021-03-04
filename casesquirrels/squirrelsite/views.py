@@ -69,3 +69,27 @@ def signup(request):
 
 def cyoa(request):
     return redirect('https://www.casesquirrels.space/static/squirrelsite/media/CYOA.html')
+
+class Article1View(LoginRequiredMixin, generic.TemplateView):
+    template_name = 'squirrelsite/article1.html'
+
+class Article2View(LoginRequiredMixin, generic.TemplateView):
+    template_name = 'squirrelsite/article2.html'
+
+class Article3View(LoginRequiredMixin, generic.TemplateView):
+    template_name = 'squirrelsite/article3.html'
+
+class Article4View(LoginRequiredMixin, generic.TemplateView):
+    template_name = 'squirrelsite/article4.html'
+
+def TREE(request):
+    return redirect('https://www.casesquirrels.space/static/squirrelsite/media/TREE.jpg')
+
+def TAIL(request):
+    return redirect('https://www.casesquirrels.space/static/squirrelsite/media/TAIL.jpg')
+
+def NUTS(request):
+    return redirect('https://www.casesquirrels.space/static/squirrelsite/media/NUTS.png')
+
+def SQRL(request):
+    return redirect('https://www.casesquirrels.space/static/squirrelsite/media/SQRL.png')
