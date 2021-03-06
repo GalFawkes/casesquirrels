@@ -19,4 +19,5 @@ urlpatterns = [
     path('TREE', views.TREE, name='tree_layer'),
     path('NUTS', views.NUTS, name='nuts_layer'),
     path('SQRL', views.SQRL, name='sqrl_layer'),
+    path('chatter', views.chatter, name='chatter'),
 ]

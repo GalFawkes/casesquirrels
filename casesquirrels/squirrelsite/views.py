@@ -93,3 +93,6 @@ def NUTS(request):
 
 def SQRL(request):
     return redirect('https://www.casesquirrels.space/static/squirrelsite/media/SQRL.png')
+
+def chatter(request):
+    return redirect('https://www.casesquirrels.space/static/squirrelsite/media/chatter.wav')

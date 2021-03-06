@@ -31,12 +31,17 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Useful Links!</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class='dropdown-item' href="https://www.youtube.com/playlist?list=PLSRXqyhwpgoC0VwnX_uz8fkOGs4zu8ls1">Puzzle Walkthroughs</a>
+                  <a class='dropdown-item' href="https://youtube.com/playlist?list=PLSRXqyhwpgoBtBBttVZb_-oAf0HaH9D43">Story Videos</a>
+                  <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="{% url 'squirrels:tree' %}">Mysterious Acorn Piles?</a>
                   <a class="dropdown-item" href="{% url 'squirrels:tail' %}">An Exclusive Interview</a>
                   <a class="dropdown-item" href="{% url 'squirrels:nuts' %}">A Letter from Squirrels</a>
                   <a class="dropdown-item" href="{% url 'squirrels:sqrl' %}">New Courses!</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="{% url 'squirrels:cyoa' %}">The Mysterious Button</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href= "{% url 'squirrels:chatter' %}">Squirrel Chatter</a>
                 </div>
   <!--				  Need to make sure that homo sapiens cannot see the actions below this list, maybe login-gated?-->
   <!--          <div>
