@@ -23,6 +23,7 @@ urlpatterns = [
     path('WATCHING', views.watching, name='watching'),
     path('SQRLDATABASE', views.sqrldatabase, name='sqrldatabase'),
     path('WINRARNOTFOUND', views.winrarnotfound, name='winrarnotfound'),
+    path('WHOLEHEARTEDLY', views.wholeheartedly, name='wholeheartedly'),
     path('FLOWERS', views.flowers, name='flowers'),
     path('CRACKTHENUT', views.crackthenut, name='crackthenut'),
 ]

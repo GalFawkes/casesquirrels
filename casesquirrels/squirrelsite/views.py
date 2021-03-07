@@ -106,7 +106,7 @@ def sqrldatabase(request):
 def winrarnotfound(request):
     return redirect('https://www.casesquirrels.space/static/squirrelsite/media/bce69b1ba0cc975806ba2c7dbd.gif')
 
-def wholehartedly(request):
+def wholeheartedly(request):
     return redirect('https://www.casesquirrels.space/static/squirrelsite/media/054b5e563cd14d818030412357.gif')
 
 def flowers(request):
