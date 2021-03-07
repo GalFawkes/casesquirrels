@@ -32,7 +32,7 @@ class RedeemView(LoginRequiredMixin, generic.edit.FormView):
         else:
             return super().form_invalid(form)
 
-class LeaderboardView(LoginRequiredMixin, generic.list.ListView):
+class LeaderboardView(generic.list.ListView):
     template_name='squirrelsite/leaderboard.html'
     
     def get_queryset(self):
@@ -96,3 +96,21 @@ def SQRL(request):
 
 def chatter(request):
     return redirect('https://www.casesquirrels.space/static/squirrelsite/media/chatter.wav')
+
+def watching(request):
+    return redirect('https://www.casesquirrels.space/static/squirrelsite/media/3edc77828144cae2cf126333f79.gif')
+
+def sqrldatabase(request):
+    return redirect('https://www.casesquirrels.space/static/squirrelsite/media/55605dca3cbd6e6eaa1ac30d92.gif')
+
+def winrarnotfound(request):
+    return redirect('https://www.casesquirrels.space/static/squirrelsite/media/bce69b1ba0cc975806ba2c7dbd.gif')
+
+def wholehartedly(request):
+    return redirect('https://www.casesquirrels.space/static/squirrelsite/media/054b5e563cd14d818030412357.gif')
+
+def flowers(request):
+    return redirect('https://www.casesquirrels.space/static/squirrelsite/media/a85b32f2ed40ee00cbb934893a.gif')
+
+def crackthenut(request):
+    return redirect('https://www.casesquirrels.space/static/squirrelsite/media/9a8dd92dc0e23e41d15dda5705.gif')

@@ -20,4 +20,9 @@ urlpatterns = [
     path('NUTS', views.NUTS, name='nuts_layer'),
     path('SQRL', views.SQRL, name='sqrl_layer'),
     path('chatter', views.chatter, name='chatter'),
+    path('WATCHING', views.watching, name='watching'),
+    path('SQRLDATABASE', views.sqrldatabase, name='sqrldatabase'),
+    path('WINRARNOTFOUND', views.winrarnotfound, name='winrarnotfound'),
+    path('FLOWERS', views.flowers, name='flowers'),
+    path('CRACKTHENUT', views.crackthenut, name='crackthenut'),
 ]
